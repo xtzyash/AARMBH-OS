@@ -1,0 +1,1293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Aarambh OS — A computing system, tuned from kernel to desktop</title>
+<meta name="description" content="Aarambh OS by Gentix Science. A Linux-based operating system engineered for performance, sovereignty, and craft. Built and signed in India." />
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* Aarambh OS — v5. Satoshi variable, flat surfaces, one accent. */
+:root{--bg:#fff;--bg-2:#F5F5F7;--surface:#F5F5F7;--surface-2:#EBEBEF;--surface-3:#E1E1E6;--line:#E5E5EA;--line-2:#D2D2D7;--ink:#1D1D1F;--ink-2:#424245;--muted:#6E6E73;--faint:#A1A1A6;--accent:#0A64F0;--accent-2:#0A64F0;--accent-3:#0A64F0;--sans:"Satoshi",-apple-system,"SF Pro Text","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--ease:cubic-bezier(.22,1,.36,1);--ease-out:cubic-bezier(.16,1,.3,1);--pad:clamp(20px,4.4vw,56px);--maxw:1120px;--r-card:22px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-size:16px;line-height:1.5}
+body{overflow-x:hidden;font-weight:450;letter-spacing:-0.011em}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input{font:inherit;color:inherit}
+ul,ol{list-style:none}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+section{position:relative}
+.eyebrow{display:none}
+.av{background:var(--ink-2)!important;background-image:none!important}
+
+/* Type */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+.sec-head.left{flex-direction:column;align-items:flex-start;gap:0;margin-bottom:48px}
+.sec-head.center{flex-direction:column;align-items:center;text-align:center;margin-bottom:56px}
+.sec-head h2,.desk-text h2,.cta-box h2{font-size:clamp(34px,5vw,56px);line-height:1.04;letter-spacing:-0.038em;font-weight:700;max-width:720px}
+.sec-head h2 em,.desk-text h2 em,.cta-box h2 em{font-style:normal;color:var(--muted)}
+.sec-head p{max-width:400px;color:var(--muted);font-size:17px;line-height:1.5}
+.sec-head.left p,.sec-head.center p{margin-top:20px;max-width:560px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 20px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;letter-spacing:-0.01em;white-space:nowrap;transition:background .2s}
+.btn:hover{background:#0856d1}
+.btn.ghost{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.btn.ghost:hover{background:rgba(10,100,240,.07)}
+.btn.sm{height:32px;padding:0 14px;font-size:13px}
+.btn.lg{height:48px;padding:0 26px;font-size:16px}
+.btn svg{width:14px;height:14px}
+
+/* Nav */
+header.site{position:fixed;top:0;left:0;right:0;z-index:200}
+.topbar{height:56px;display:flex;align-items:center;padding:0 var(--pad);background:rgba(255,255,255,.78);backdrop-filter:blur(24px) saturate(1.8);-webkit-backdrop-filter:blur(24px) saturate(1.8);border-bottom:1px solid transparent;transition:border-color .3s}
+header.site.scrolled .topbar{border-bottom-color:var(--line)}
+.topbar-in{width:100%;max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;line-height:1;user-select:none}
+.brand-logo{width:26px;height:26px;object-fit:contain;display:block;flex-shrink:0;background:none;border:none;box-shadow:none;padding:0}
+.brand-text{font-size:19px;font-weight:800;letter-spacing:-0.035em;line-height:1.1;white-space:nowrap;background:linear-gradient(90deg, #ff00cc 0%, #ff0055 28%, #ff1a1a 48%, #ff77cc 74%, #ee00ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;display:inline-block}
+.f-brand .brand .mark{width:28px;height:28px;display:grid;place-items:center;flex-shrink:0}
+nav.main{display:flex;gap:2px}
+nav.main a{font-size:13.5px;font-weight:500;color:var(--ink-2);padding:6px 12px;border-radius:8px;transition:background .15s}
+nav.main a:hover{background:rgba(0,0,0,.05)}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.sys-tray{display:flex;align-items:center;gap:12px;margin-right:6px;color:var(--muted);font-size:12.5px;font-weight:500;font-variant-numeric:tabular-nums}
+.sys-tray svg{width:16px;height:16px}
+.sys-tray .clock{color:var(--ink-2);min-width:62px;text-align:right}
+.menu-toggle{display:none;width:36px;height:36px;border-radius:10px;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.menu-toggle span{display:block;width:16px;height:1.5px;background:var(--ink);transition:.3s var(--ease)}
+body.menu-open .menu-toggle span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+body.menu-open .menu-toggle span:nth-child(2){opacity:0}
+body.menu-open .menu-toggle span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media (max-width:1024px){.sys-tray{display:none}}
+@media (max-width:880px){
+nav.main{position:fixed;inset:56px 0 0 0;background:#fff;flex-direction:column;padding:16px 24px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:150}
+body.menu-open nav.main{opacity:1;visibility:visible}
+nav.main a{font-size:22px;font-weight:600;padding:16px 0;border-radius:0;border-bottom:1px solid var(--line)}
+.nav-cta .btn{display:none}.menu-toggle{display:flex;position:relative;z-index:160}}
+
+/* Hero */
+#hero{padding-top:56px;overflow:hidden}
+.hero-inner{text-align:center;display:flex;flex-direction:column;align-items:center;padding-top:88px}
+.hero-chip{display:inline-flex;align-items:center;gap:10px;height:30px;padding:0 4px 0 14px;border-radius:999px;background:var(--bg-2);font-size:13px;color:var(--ink-2)}
+.hero-chip i{font-style:normal;font-size:12px;font-weight:600;color:#fff;background:var(--ink);padding:3px 10px;border-radius:999px}
+#hero h1{font-size:clamp(46px,8.4vw,96px);line-height:.98;letter-spacing:-0.046em;font-weight:700;margin-top:26px;max-width:960px}
+#hero h1 span{display:block;color:var(--muted)}
+#hero p.lead{margin-top:24px;font-size:clamp(17px,1.8vw,21px);line-height:1.45;color:var(--muted);max-width:600px}
+.hero-cta{margin-top:32px;display:flex;flex-direction:column;gap:12px;align-items:center;width:100%}
+@media (min-width:640px){.hero-cta{flex-direction:row;justify-content:center;width:auto}}
+.hero-meta{margin-top:18px;font-size:13px;color:var(--faint)}
+.stage{margin:64px auto 0;max-width:1080px}
+.monitor{border-radius:16px 16px 6px 6px;padding:9px;background:#1D1D1F;box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
+.screen{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background:linear-gradient(160deg,#2c2c30,#4a5568)}
+.screen>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.screen-top{position:absolute;left:0;right:0;top:0;height:26px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:rgba(255,255,255,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);color:#fff;font-size:11.5px;font-weight:500;z-index:2}
+.screen-top .l,.screen-top .r{display:flex;gap:14px}
+.shelf{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:10px;padding:8px 12px;border-radius:20px;background:rgba(255,255,255,.22);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.3);z-index:2}
+.shelf span{width:clamp(26px,4.2vw,44px);aspect-ratio:1;border-radius:24%;display:grid;place-items:center;transition:transform .25s var(--ease-out)}
+.shelf span:hover{transform:translateY(-6px)}
+.shelf svg{width:55%;height:55%;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.base{height:12px;width:110%;position:relative;left:-5%;border-radius:0 0 20px 20px;background:#D2D2D7}
+.stage-fade{height:96px}
+@media (max-width:560px){.hero-inner{padding-top:56px}.screen-top .l span:nth-child(n+3){display:none}.stage{margin-top:44px}.monitor{padding:5px;border-radius:10px 10px 4px 4px}}
+
+/* Ticker + logos */
+#ticker{background:var(--bg-2);overflow:hidden;white-space:nowrap;position:relative}
+.ticker-mask-l,.ticker-mask-r{position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.ticker-mask-l{left:0;background:linear-gradient(to right,var(--bg-2),transparent)}
+.ticker-mask-r{right:0;background:linear-gradient(to left,var(--bg-2),transparent)}
+.ticker-track{display:inline-flex;align-items:center;gap:40px;animation:scroll-x 70s linear infinite;padding:18px 0}
+.ticker-track span{font-size:14px;color:var(--ink);font-weight:600;display:inline-flex;align-items:center}
+.ticker-track span.muted{color:var(--faint)}
+.ticker-track .d{display:none}
+@keyframes scroll-x{to{transform:translateX(-50%)}}
+#logos{padding:64px 0 24px;text-align:center}
+#logos p{font-size:14px;color:var(--faint);font-weight:500}
+.logo-cloud{overflow:hidden;margin-top:24px;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
+.logo-track{display:inline-flex;align-items:center;gap:56px;animation:scroll-x 50s linear infinite;padding-right:56px}
+.logo-track .lg{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);opacity:.4;flex-shrink:0}
+.logo-track .lg svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* Features */
+#features{padding:112px 0}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.feat-grid{grid-template-columns:1fr}}
+.feat{background:var(--bg-2);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column}
+.feat.span-2{grid-column:span 2}
+@media (max-width:560px){.feat.span-2{grid-column:span 1}}
+.feat .visual{position:relative;flex:1;min-height:240px;overflow:hidden;background:var(--surface-2)}
+.feat .copy{padding:22px 26px 26px}
+.feat .copy h3{font-size:18px;font-weight:700;letter-spacing:-0.025em;display:flex;align-items:center;gap:8px}
+.feat .copy h3 svg{width:17px;height:17px;stroke:var(--ink);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.feat .copy p{margin-top:6px;font-size:15px;line-height:1.5;color:var(--muted)}
+.viz-collab{padding:24px}
+.viz-collab .doc{background:#fff;border-radius:12px;padding:20px;height:100%;position:relative}
+.viz-collab .doc .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.viz-collab .doc .hd .ttl{width:120px;height:10px;background:var(--line-2);border-radius:4px}
+.viz-collab .doc .hd .avs{display:flex}
+.viz-collab .doc .hd .av{width:24px;height:24px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff}
+.viz-collab .doc .hd .av+.av{margin-left:-6px}
+.viz-collab .doc .ln{height:8px;border-radius:4px;background:var(--surface-2);margin-bottom:10px}
+.viz-collab .doc .ln.h{background:var(--ink);width:60%;opacity:.8}
+.viz-collab .doc .chip{position:absolute;left:20px;bottom:20px;display:flex;gap:8px;max-width:280px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px}
+.viz-collab .doc .chip .av{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
+.viz-collab .doc .chip p{font-size:11px;line-height:1.4;color:var(--muted)}
+.cur{position:absolute;display:flex;align-items:flex-start;pointer-events:none;z-index:3}
+.cur .ic{width:14px;height:14px}
+.cur .lb{margin-left:8px;margin-top:10px;padding:2px 6px;border-radius:6px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap}
+.cur-a{animation:cur-a 6s ease-in-out infinite}.cur-b{animation:cur-b 7s ease-in-out infinite}
+@keyframes cur-a{0%,100%{left:40%;top:32%}25%{left:55%;top:42%}50%{left:65%;top:30%}75%{left:50%;top:50%}}
+@keyframes cur-b{0%,100%{left:70%;top:22%}33%{left:80%;top:35%}66%{left:60%;top:48%}}
+.viz-auto{padding:24px;display:flex;align-items:center;justify-content:center;height:100%}
+.viz-auto ol{position:relative;width:100%;max-width:260px;display:flex;flex-direction:column;gap:14px}
+.viz-auto li{display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:500}
+.viz-auto li .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.viz-an{padding:24px;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+.viz-an .bars{display:flex;align-items:flex-end;gap:6px;height:75%}
+.viz-an .bars div{flex:1;background:var(--ink);opacity:.85;border-radius:5px 5px 0 0;transform-origin:bottom}
+.viz-an .tag{position:absolute;left:24px;top:24px;background:#fff;border-radius:10px;padding:6px 10px;font-size:12px;color:var(--muted)}
+.viz-an .tag b{color:var(--ink);font-weight:700}
+.viz-int{padding:24px;display:flex;align-items:center;justify-content:center;height:100%}
+.viz-int .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.viz-int .grid div{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:16px;font-weight:700;background:#fff}
+
+/* Benefits */
+#beneficial{padding:112px 0;background:var(--bg-2)}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+@media (max-width:900px){.ben-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ben-grid{grid-template-columns:1fr}}
+.ben-card{background:#fff;border-radius:var(--r-card);padding:32px 28px}
+.ben-card h3{font-size:18px;font-weight:700;letter-spacing:-0.025em}
+.ben-card p{margin-top:8px;font-size:15px;line-height:1.55;color:var(--muted)}
+
+/* Steps */
+#steps{padding:112px 0}
+.steps-wrap{position:relative;margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+@media (max-width:760px){.steps-wrap{grid-template-columns:1fr}}
+.steps-wrap::before{content:"";position:absolute;left:0;right:0;top:20px;height:1px;background:var(--line)}
+@media (max-width:760px){.steps-wrap::before{display:none}}
+.step{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:15px;font-weight:700;position:relative;z-index:2;box-shadow:0 0 0 8px #fff}
+.step h3{font-size:20px;font-weight:700;letter-spacing:-0.025em}
+.step p{font-size:15px;line-height:1.55;color:var(--muted);max-width:320px}
+.step .cmd{font-family:var(--mono);font-size:12px;background:var(--bg-2);border-radius:8px;padding:10px 12px;color:var(--ink-2);display:inline-block}
+
+/* Showcase */
+#showcase{padding:112px 0;background:var(--bg-2)}
+.show-grid{display:grid;grid-template-columns:300px 1fr;gap:28px;margin-top:32px;align-items:start}
+@media (max-width:900px){.show-grid{grid-template-columns:1fr;gap:16px}.show-tabs{flex-direction:row;overflow-x:auto;gap:8px}.show-tabs li{flex:0 0 auto}.show-tabs button{width:auto;padding:12px 16px}.show-tabs button .desc{display:none}}
+.show-tabs{display:flex;flex-direction:column;gap:4px}
+.show-tabs button{width:100%;text-align:left;padding:18px 20px;border-radius:16px;color:var(--muted);display:flex;gap:14px;align-items:flex-start;transition:background .2s}
+.show-tabs button:hover{background:rgba(0,0,0,.04)}
+.show-tabs button.active{background:#fff;box-shadow:0 0 0 1px var(--line)}
+.show-tabs button .ico{width:36px;height:36px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;flex-shrink:0}
+.show-tabs button.active .ico{background:var(--ink)}
+.show-tabs button .ico svg{width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.show-tabs button.active .ico svg{stroke:#fff}
+.show-tabs button .ttl{display:block;font-size:16px;font-weight:700;color:var(--ink-2);padding-top:7px}
+.show-tabs button.active .ttl{color:var(--ink)}
+.show-tabs button .desc{margin-top:4px;display:block;font-size:14px;line-height:1.45}
+.console{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 30px 60px -36px rgba(0,0,0,.22)}
+.con-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:54px;padding:0 20px;border-bottom:1px solid var(--line)}
+.con-title{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;white-space:nowrap}
+.con-title .mk{width:22px;height:22px;border-radius:6px;background:var(--ink);display:grid;place-items:center}
+.con-title .mk svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.con-title small{font-size:13px;font-weight:500;color:var(--faint)}
+.con-search{display:flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:var(--bg-2);font-size:13px;color:var(--faint);min-width:0;white-space:nowrap}
+.con-search svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+@media (max-width:560px){.con-search,.con-title small{display:none}}
+.show-body{display:grid;padding:20px 20px 12px}
+.show-body .pane{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .25s}
+.show-body .pane.active{opacity:1;visibility:visible}
+.con-foot{display:flex;align-items:center;gap:8px;padding:14px 20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.con-foot i{width:7px;height:7px;border-radius:50%;background:#28C93F}
+.con-foot span{margin-left:auto;color:var(--faint)}
+/* Inbox */
+.inb-tabs{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--bg-2);margin-bottom:8px}
+.inb-tabs span{padding:5px 14px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted)}
+.inb-tabs span.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.inb li{display:grid;grid-template-columns:8px 34px 1fr auto 36px;align-items:center;gap:12px;padding:13px 6px;border-top:1px solid var(--line)}
+.inb .u{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.inb li:not(.unread) .u{visibility:hidden}
+.inb .av{width:34px;height:34px;border-radius:50%;background:var(--bg-2)!important;color:var(--ink-2)!important;display:grid;place-items:center;font-size:12px;font-weight:700}
+.inb .t{font-size:14.5px;font-weight:500;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.inb li.unread .t{font-weight:700}
+.inb .tag{font-size:12px;font-weight:600;color:var(--ink-2);background:var(--bg-2);padding:3px 10px;border-radius:999px}
+.inb .w{font-size:12.5px;color:var(--faint);text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.inb li{grid-template-columns:8px 34px 1fr 32px}.inb .tag{display:none}}
+/* Board */
+.kb{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:700px){.kb{grid-template-columns:1fr 1fr}}
+.kb .col{background:var(--bg-2);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.kb .col-h{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700}
+.kb .col-h b{font-weight:600;color:var(--faint);font-size:12px}
+.kb .trk{display:flex;gap:3px;margin:0 0 4px}
+.kb .trk i{flex:1;height:3px;border-radius:2px;background:var(--line-2)}
+.kb .trk i.f{background:var(--ink)}
+.kb .card{background:#fff;border-radius:10px;padding:12px;box-shadow:0 0 0 1px var(--line)}
+.kb .card p{font-size:13px;font-weight:700;line-height:1.3}
+.kb .card .ft{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-size:12px;color:var(--muted)}
+.kb .card .av{width:22px;height:22px;border-radius:50%;background:var(--bg-2)!important;color:var(--ink-2)!important;display:grid;place-items:center;font-size:9px;font-weight:700}
+/* Benchmarks */
+.bms{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:700px){.bms{grid-template-columns:1fr}}
+.bm{background:var(--bg-2);border-radius:16px;padding:18px 18px 14px}
+.bm-hd{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted)}
+.bm-d{font-size:12px;font-weight:700;color:var(--ink);background:#fff;padding:3px 9px;border-radius:999px}
+.bm-v{margin-top:8px;font-size:40px;font-weight:700;letter-spacing:-0.04em;line-height:1;font-variant-numeric:tabular-nums}
+.bm-v small{font-size:16px;color:var(--muted);font-weight:600;margin-left:3px;letter-spacing:0}
+.bm-s{margin-top:6px;font-size:13px;color:var(--muted)}
+.bm-plot{position:relative;margin:20px 0 8px 44px}
+.bm-plot svg{display:block;width:100%;height:auto;overflow:visible}
+.bm-plot .y i{position:absolute;left:-44px;font-style:normal;font-size:11.5px;color:var(--faint);transform:translateY(-50%);font-variant-numeric:tabular-nums}
+.bm-x{display:flex;justify-content:space-between;margin-left:44px;font-size:11.5px;color:var(--faint)}
+.bm-note{margin-top:12px;font-size:12.5px;color:var(--faint)}
+
+/* Desktop */
+#desktop{padding:112px 0}
+.desk-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px}
+@media (max-width:900px){.desk-grid{grid-template-columns:1fr;gap:32px}}
+.desk-text p{margin-top:20px;color:var(--muted);font-size:17px;line-height:1.55;max-width:480px}
+.desk-highlights{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.desk-highlights .row{display:flex;gap:12px;font-size:15px;color:var(--ink-2);line-height:1.5}
+.desk-highlights .row .chk{width:20px;height:20px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+.desk-highlights .row .chk svg{width:11px;height:11px;stroke:#fff;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.desk-highlights .row b{font-weight:700;color:var(--ink)}
+.os-window{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.2),0 0 0 1px var(--line)}
+.os-w-bar{height:36px;background:var(--bg-2);display:flex;align-items:center;padding:0 12px;gap:6px}
+.os-w-bar .d{width:11px;height:11px;border-radius:50%}
+.os-w-bar .d:nth-child(1){background:#FF6058}.os-w-bar .d:nth-child(2){background:#FFBE2E}.os-w-bar .d:nth-child(3){background:#28C93F}
+.os-w-bar .ttl{margin-left:14px;font-size:12px;font-weight:500;color:var(--muted)}
+.os-w-body{position:relative;height:360px;background:var(--bg-2);overflow:hidden}
+.os-w-body .menubar{position:absolute;left:0;right:0;top:0;height:30px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);display:flex;align-items:center;padding:0 14px;gap:18px;font-size:12px;color:var(--muted);font-weight:500;z-index:3}
+.os-w-body .menubar .logo{font-weight:700;color:var(--ink);font-size:13px;display:flex;align-items:center;gap:6px}
+.os-w-body .menubar .logo svg{width:14px;height:14px}
+.os-w-body .menubar .sp{flex:1}
+.os-w-body .menubar .ind{font-size:11px;display:flex;gap:10px;align-items:center}
+.os-w-body .menubar .ind i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-right:5px}
+.os-grid-w{position:absolute;inset:30px 0 64px 0;padding:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-content:start}
+.os-tile-w{aspect-ratio:1;border-radius:12px;background:#fff;display:grid;place-items:center}
+.os-tile-w svg{width:18px;height:18px;stroke:var(--ink);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.os-tile-w.dark{background:var(--ink)}.os-tile-w.dark svg{stroke:#fff}
+.os-dock-w{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.75);backdrop-filter:blur(10px);border-radius:16px;z-index:4;box-shadow:0 0 0 1px var(--line)}
+.os-dock-w .ic{width:34px;height:34px;border-radius:9px;background:#fff;display:grid;place-items:center;transition:transform .25s var(--ease-out)}
+.os-dock-w .ic:hover{transform:translateY(-5px)}
+.os-dock-w .ic.active{background:var(--ink)}.os-dock-w .ic.active svg{stroke:#fff}
+.os-dock-w .ic svg{width:16px;height:16px;stroke:var(--ink);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* Metrics */
+#metrics{padding:96px 0;background:var(--bg-2)}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+@media (max-width:760px){.metrics-grid{grid-template-columns:1fr 1fr}}
+.metric{display:flex;flex-direction:column;gap:10px}
+.metric .num{font-size:clamp(44px,6vw,64px);font-weight:700;letter-spacing:-0.045em;line-height:1;font-variant-numeric:tabular-nums}
+.metric .num .unit{font-size:.4em;color:var(--muted);font-weight:600;margin-left:2px}
+.metric .lbl{font-size:15px;color:var(--muted);line-height:1.45;max-width:200px}
+
+/* Testimonials */
+#testimonials{padding:112px 0}
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+@media (max-width:900px){.tst-grid{grid-template-columns:1fr}}
+.tst{background:var(--bg-2);border-radius:var(--r-card);padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.tst blockquote{font-size:17px;line-height:1.5;color:var(--ink);font-weight:500;letter-spacing:-0.015em}
+.tst figcaption{display:flex;align-items:center;gap:12px}
+.tst figcaption .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.tst figcaption .info p:first-child{font-size:14px;font-weight:700}
+.tst figcaption .info p:last-child{font-size:13px;color:var(--muted)}
+
+/* Pricing */
+#pricing{padding:112px 0;background:var(--bg-2)}
+.price-toggle{display:flex;justify-content:center;margin-top:32px}
+.price-toggle .pill{display:inline-flex;background:var(--surface-2);padding:4px;border-radius:999px;position:relative}
+.price-toggle .pill button{position:relative;z-index:2;padding:8px 20px;font-size:14px;font-weight:600;color:var(--muted);border-radius:999px;display:flex;align-items:center;gap:8px}
+.price-toggle .pill button.active{color:var(--ink)}
+.price-toggle .pill button .save{font-size:11px;padding:2px 7px;border-radius:999px;background:var(--accent);color:#fff;font-weight:600}
+.price-toggle .pill .slider{position:absolute;top:4px;left:4px;height:calc(100% - 8px);background:#fff;border-radius:999px;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:transform .35s var(--ease),width .35s var(--ease);z-index:1}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+@media (max-width:900px){.price-grid{grid-template-columns:1fr}}
+.tier{background:#fff;border-radius:var(--r-card);padding:32px 28px;display:flex;flex-direction:column;position:relative}
+.tier.feat{background:var(--ink);color:#fff}
+.tier.feat .price,.tier.feat .name,.tier.feat .in li,.tier.feat .in li svg{color:#fff}
+.tier.feat .desc,.tier.feat .per,.tier.feat .in li.muted,.tier.feat .in li.muted svg{color:#A1A1A6}
+.tier.feat .btn{background:#fff;color:var(--ink)}
+.tier.feat .btn:hover{background:#E8E8ED}
+.tier .badge{position:absolute;top:24px;right:24px;font-size:12px;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2);font-weight:600}
+.tier.feat .badge{background:var(--accent);color:#fff}
+.tier .name{font-size:17px;font-weight:700;letter-spacing:-0.02em}
+.tier .price{margin-top:16px;font-size:48px;font-weight:700;letter-spacing:-0.045em;line-height:1;font-variant-numeric:tabular-nums}
+.tier .price .per{font-size:14px;color:var(--muted);font-weight:500;margin-left:4px;letter-spacing:0}
+.tier .desc{margin-top:14px;font-size:15px;line-height:1.5;color:var(--muted);min-height:46px}
+.tier .btn{margin-top:24px;width:100%;height:44px}
+.tier .in{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.tier.feat .in{border-top-color:rgba(255,255,255,.14)}
+.tier .in li{display:flex;gap:10px;font-size:14.5px;color:var(--ink-2)}
+.tier .in li.muted{color:var(--faint)}
+.tier .in li svg{width:14px;height:14px;flex-shrink:0;margin-top:4px;stroke:var(--ink);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tier .in li.muted svg{stroke:var(--faint)}
+
+/* FAQ */
+#faq{padding:112px 0}
+.faq-list{max-width:820px;margin:48px auto 0;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item .q{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;padding:26px 4px;text-align:left;font-size:19px;font-weight:600;letter-spacing:-0.02em}
+.faq-item .q .plus{width:24px;height:24px;display:grid;place-items:center;flex-shrink:0;color:var(--muted);transition:transform .3s var(--ease),color .2s}
+.faq-item .q:hover .plus{color:var(--ink)}
+.faq-item.open .q .plus{transform:rotate(45deg);color:var(--ink)}
+.faq-item .q .plus svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
+.faq-item .a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-item .a p{padding:0 4px 28px;font-size:16px;line-height:1.6;color:var(--muted);max-width:680px}
+
+/* CTA */
+#cta{padding:0 0 96px}
+.cta-box{background:var(--ink);color:#fff;border-radius:32px;padding:88px 32px;text-align:center}
+.cta-box h2{margin:0 auto}
+.cta-box h2 em{color:#8E8E93}
+.cta-box p{margin:18px auto 0;color:#A1A1A6;font-size:18px;max-width:520px}
+.cta-form{margin:36px auto 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;max-width:480px}
+.cta-form input{flex:1;min-width:0;height:48px;padding:0 20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;color:#fff;font-size:15px}
+.cta-form input::placeholder{color:#6E6E73}
+.cta-form input:focus{outline:none;border-color:rgba(255,255,255,.5)}
+.cta-form .btn{height:48px;padding:0 24px;background:#fff;color:var(--ink);font-size:15px}
+.cta-form .btn:hover{background:#E8E8ED}
+.cta-form .err{display:none;flex-basis:100%;text-align:left;font-size:13px;color:#FFB454;margin:6px 0 0 20px}
+.cta-form.has-err .err{display:block}
+.cta-form.has-err input{border-color:#FFB454}
+.cta-ok{display:none;margin-top:28px;justify-content:center}
+.cta-ok.show{display:flex}
+.cta-ok .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;font-size:15px}
+.cta-ok .chip svg{width:16px;height:16px;stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* Footer */
+footer.site{background:var(--bg-2);padding:72px 0 32px}
+.f-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:48px}
+@media (max-width:760px){.f-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:480px){.f-grid{grid-template-columns:1fr}}
+.f-brand .brand{margin-bottom:14px;font-size:15px;font-weight:700;color:var(--ink)}
+.f-brand p{font-size:14px;line-height:1.55;color:var(--muted);max-width:280px}
+.f-socials{margin-top:20px;display:flex;gap:4px}
+.f-socials a{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:var(--muted)}
+.f-socials a:hover{background:var(--surface-2);color:var(--ink)}
+.f-socials svg{width:16px;height:16px;fill:currentColor}
+.f-col h5{font-size:13px;font-weight:700;margin-bottom:14px}
+.f-col ul{display:flex;flex-direction:column;gap:10px}
+.f-col a{font-size:14px;color:var(--muted)}
+.f-col a:hover{color:var(--ink)}
+.f-bottom{margin-top:56px;padding-top:24px;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.f-bottom .right{display:flex;gap:24px}
+.f-bottom a:hover{color:var(--ink)}
+
+/* Reveal */
+[data-r]{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+[data-r].in-view{opacity:1;transform:none}
+[data-r="1"]{transition-delay:.06s}[data-r="2"]{transition-delay:.12s}[data-r="3"]{transition-delay:.18s}
+@media (prefers-reduced-motion:reduce){[data-r]{opacity:1;transform:none;transition:none}.ticker-track,.logo-track,.cur-a,.cur-b{animation:none}}
+@media (max-width:560px){.cta-box{padding:64px 22px;border-radius:24px}.faq-item .q{font-size:17px}}
+</style>
+</head>
+<body>
+
+<!-- ============ Nav ============ -->
+<header class="site" id="header">
+  <div class="topbar"><div class="topbar-in">
+    <a href="#hero" class="brand" aria-label="Aarambh OS home">
+      <img class="brand-logo" src="logo.svg" alt="Aarambh OS logo" />
+      <span class="brand-text">Aarambh OS</span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#desktop">Desktop</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="sys-tray" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+        <span class="clock" id="clock">9:41 AM</span>
+      </div>
+      <a href="#cta" class="btn sm">Download</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div></div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-chip" data-r><b>Aarambh OS 3.0</b> is here <i>What's new</i></div>
+      <h1 data-r="1">The operating system<span>built for how you work.</span></h1>
+      <p class="lead" data-r="2">A fast, secure Linux desktop that boots in eleven seconds, updates in the background, and stays out of your way.</p>
+      <div class="hero-cta" data-r="3">
+        <a href="#cta" class="btn lg">Download Aarambh OS</a>
+        <a href="#features" class="btn ghost lg">Explore features</a>
+      </div>
+      <p class="hero-meta" data-r="3">Free for personal use. 1.8 GB. Runs on x86_64 and ARM64.</p>
+    </div>
+
+    <div class="stage" data-r="3">
+      <div class="monitor">
+        <div class="screen">
+          <img src="desktop.webp" alt="Aarambh OS desktop with the app shelf and window manager" loading="eager" decoding="async" onerror="this.style.display='none'" />
+          <div class="screen-top">
+            <div class="l"><b>Aarambh</b><span>Files</span><span>Edit</span><span>View</span><span>Window</span></div>
+            <div class="r"><span>Wi-Fi</span><span id="clock2">Sat 9:41 AM</span></div>
+          </div>
+          <div class="shelf"><span style="background:linear-gradient(145deg,#5b8cff,#2D5BFF)"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 9h16"/></svg></span><span style="background:linear-gradient(145deg,#35D6E8,#1fa5c4)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span style="background:linear-gradient(145deg,#8B6BFF,#5b3fe0)"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><span style="background:linear-gradient(145deg,#ff9f43,#f06a1f)"><svg viewBox="0 0 24 24"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></svg></span><span style="background:linear-gradient(145deg,#34c98a,#1a9a66)"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-4-7 7"/></svg></span><span style="background:linear-gradient(145deg,#4a4a46,#1c1c1a)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span></div>
+        </div>
+      </div>
+      <div class="base"></div>
+    </div>
+    <div class="stage-fade"></div>
+  </div>
+</section>
+
+<!-- ============ Ticker ============ -->
+<section id="ticker">
+  <div class="ticker-mask-l"></div>
+  <div class="ticker-mask-r"></div>
+  <div class="ticker-track">
+    <span><i class="d"></i>LINUX 6.12 LTS</span>
+    <span class="muted">WAYLAND</span>
+    <span><i class="d"></i>PIPEWIRE 1.2</span>
+    <span class="muted">SYSTEMD 256</span>
+    <span><i class="d"></i>BTRFS + ZFS ROOT</span>
+    <span class="muted">RPM-OSTREE</span>
+    <span><i class="d"></i>FLATPAK + DPKG5</span>
+    <span class="muted">KDE PLASMA 6.2</span>
+    <span><i class="d"></i>FIPS 140-3 CRYPTO</span>
+    <span class="muted">SBOM / SLSA L3</span>
+    <span><i class="d"></i>AIR-GAPPED READY</span>
+    <span class="muted">TPM 2.0 + UKI</span>
+    <span><i class="d"></i>LINUX 6.12 LTS</span>
+    <span class="muted">WAYLAND</span>
+    <span><i class="d"></i>PIPEWIRE 1.2</span>
+    <span class="muted">SYSTEMD 256</span>
+    <span><i class="d"></i>BTRFS + ZFS ROOT</span>
+    <span class="muted">RPM-OSTREE</span>
+    <span><i class="d"></i>FLATPAK + DPKG5</span>
+    <span class="muted">KDE PLASMA 6.2</span>
+    <span><i class="d"></i>FIPS 140-3 CRYPTO</span>
+    <span class="muted">SBOM / SLSA L3</span>
+    <span><i class="d"></i>AIR-GAPPED READY</span>
+    <span class="muted">TPM 2.0 + UKI</span>
+  </div>
+</section>
+
+<!-- ============ Logo cloud ============ -->
+<section id="logos">
+  <div class="wrap">
+    <p data-r>Powering fleets at</p>
+    <div class="logo-cloud">
+      <div class="logo-track">
+        <span class="lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>Sarvam Labs</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 4 20 19H4z"/></svg>Vayuvega</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>IndusGrid</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M3 14c3-5 6-5 9 0s6 5 9 0"/></svg>Trident Systems</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 4v16M6 10c0 4 3 6 6 6s6-2 6-6"/></svg>Anvay Health</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0M3 12c3-6 15-6 18 0"/></svg>Kaarya</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4c-4 4-4 12 0 16M12 4c4 4 4 12 0 16"/></svg>Prahar Logistics</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M5 19c6-1 10-6 14-14-5 1-10 5-12 11l-2 3z"/></svg>Nandin Foods</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>Sarvam Labs</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 4 20 19H4z"/></svg>Vayuvega</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>IndusGrid</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M3 14c3-5 6-5 9 0s6 5 9 0"/></svg>Trident Systems</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 4v16M6 10c0 4 3 6 6 6s6-2 6-6"/></svg>Anvay Health</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0M3 12c3-6 15-6 18 0"/></svg>Kaarya</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4c-4 4-4 12 0 16M12 4c4 4 4 12 0 16"/></svg>Prahar Logistics</span>
+        <span class="lg"><svg viewBox="0 0 24 24"><path d="M5 19c6-1 10-6 14-14-5 1-10 5-12 11l-2 3z"/></svg>Nandin Foods</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Features ============ -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 data-r data-r="1">Built end-to-end, <em>not bolted together.</em></h2>
+      </div>
+      <p data-r data-r="2">Every layer — from the kernel scheduler to the desktop compositor — is shipped, signed, and supported as a single, coherent unit.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat span-2" data-r>
+        <div class="visual">
+          <div class="viz-collab">
+            <div class="doc">
+              <div class="hd">
+                <span class="ttl"></span>
+                <span class="avs">
+                  <span class="av" style="background:linear-gradient(135deg,hsl(214 70% 62%),hsl(254 70% 48%))">AD</span>
+                  <span class="av" style="background:linear-gradient(135deg,hsl(176 70% 62%),hsl(216 70% 48%))">RI</span>
+                  <span class="av" style="background:linear-gradient(135deg,hsl(268 70% 62%),hsl(308 70% 48%))">FQ</span>
+                </span>
+              </div>
+              <div class="ln" style="width:92%"></div>
+              <div class="ln" style="width:76%"></div>
+              <div class="ln h" style="width:84%"></div>
+              <div class="ln" style="width:60%"></div>
+              <div class="ln" style="width:70%"></div>
+              <div class="chip">
+                <span class="av" style="background:linear-gradient(135deg,hsl(268 70% 62%),hsl(308 70% 48%));width:20px;height:20px;font-size:9px">FQ</span>
+                <p>Can we bump the memory cap to 1.5 GB for the kiosk images before Friday?</p>
+              </div>
+              <div class="cur cur-a">
+                <svg class="ic" viewBox="0 0 24 24" fill="hsl(214 80% 70%)" stroke="hsl(214 80% 70%)" stroke-width="1.5" stroke-linejoin="round"><path d="M5 3l5 16 2-7 7-2z"/></svg>
+                <span class="lb" style="background:hsl(214 80% 70%)">Ananya</span>
+              </div>
+              <div class="cur cur-b">
+                <svg class="ic" viewBox="0 0 24 24" fill="hsl(176 80% 70%)" stroke="hsl(176 80% 70%)" stroke-width="1.5" stroke-linejoin="round"><path d="M5 3l5 16 2-7 7-2z"/></svg>
+                <span class="lb" style="background:hsl(176 80% 70%)">Rohit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Real-time collaboration</h3>
+          <p>Edit a fleet policy with three engineers at once. Cursors, comments, and presence — built into the console, not bolted on.</p>
+        </div>
+      </div>
+
+      <div class="feat" data-r data-r="1">
+        <div class="visual">
+          <div class="viz-auto">
+            <ol>
+              <li><span class="dot" style="background:#2D5BFF"></span>When a CVE is published</li>
+              <li><span class="dot" style="background:#35D6E8"></span>Stage a patched image</li>
+              <li><span class="dot" style="background:#8B6BFF"></span>Notify the fleet admins</li>
+            </ol>
+          </div>
+        </div>
+        <div class="copy">
+          <h3><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>Automation</h3>
+          <p>Wire triggers to actions. A CVE drops, an image is staged, admins are pinged — all from one rule.</p>
+        </div>
+      </div>
+
+      <div class="feat" data-r>
+        <div class="visual">
+          <div class="viz-an">
+            <span class="tag">Idle memory <b>-42%</b></span>
+            <div class="bars">
+              <div style="height:38%"></div><div style="height:52%"></div><div style="height:44%"></div>
+              <div style="height:68%"></div><div style="height:60%"></div><div style="height:82%"></div>
+              <div style="height:74%"></div><div style="height:96%"></div><div style="height:88%"></div>
+              <div style="height:100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 16l4-4 4 2 5-6"/></svg>Analytics</h3>
+          <p>Boot time, idle memory, update success — every metric you need to defend the platform, in one chart.</p>
+        </div>
+      </div>
+
+      <div class="feat span-2" data-r data-r="1">
+        <div class="visual">
+          <div class="viz-int">
+            <div class="grid">
+              <div title="GitHub">G</div><div title="Slack">S</div><div title="Figma">F</div>
+              <div title="Linear">L</div><div title="Notion">N</div><div title="Zoom">Z</div>
+              <div title="Stripe">S</div><div title="Sentry">S</div><div title="Vercel">V</div>
+              <div title="Intercom">I</div><div title="Jira">J</div><div title="Drive">D</div>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h3><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Integrations</h3>
+          <p>Push to Slack when a rollout finishes. File a Jira when a kiosk fails. Aarambh speaks the tools your team already lives in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Beneficial ============ -->
+<section id="beneficial">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2 data-r data-r="1">Eight reasons teams <em>switch.</em></h2>
+      <p data-r data-r="2">The small things that compound. Each one came from a specific customer conversation — none are theoretical.</p>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-card" data-r>
+        <h3>One image, every device</h3>
+        <p>The same signed ISO boots on a 2018 ThinPad, a 2025 Mac mini, and a fleet of Raspberry Pi 5s. No driver hunt, no respins.</p>
+      </div>
+      <div class="ben-card" data-r data-r="1">
+        <h3>Updates that don't bite</h3>
+        <p>Atomic, signed, and reversible. A failed boot rolls back automatically to the last known good state, before you even hear about it.</p>
+      </div>
+      <div class="ben-card" data-r data-r="2">
+        <h3>Your keys, your image</h3>
+        <p>Sovereign edition hands you the signing key. The build runs on your hardware, the SBOM lives on your network, the audit trail is yours.</p>
+      </div>
+      <div class="ben-card" data-r>
+        <h3>Console that scales</h3>
+        <p>Push a profile to ten thousand machines with one command. MDM-style enrollment, policy inheritance, and ring-based rollouts.</p>
+      </div>
+      <div class="ben-card" data-r data-r="1">
+        <h3>Built for audits</h3>
+        <p>SLSA L3 provenance, in-toto attestations, and a published SBOM for every release. Auditors stop asking after the first call.</p>
+      </div>
+      <div class="ben-card" data-r data-r="2">
+        <h3>Works air-gapped</h3>
+        <p>Install, update, and recover without ever touching the public internet. The private mirror is one package, two ports, three commands.</p>
+      </div>
+      <div class="ben-card" data-r>
+        <h3>Telemetry, opt-in</h3>
+        <p>There is no off-switch because there is no on-switch. What you share is up to you, and it leaves your network over a documented channel.</p>
+      </div>
+      <div class="ben-card" data-r data-r="1">
+        <h3>Designed in the open</h3>
+        <p>RFCs, roadmap, and changelog are public. Every release ships with a written post-mortem of what didn't make it and why.</p>
+      </div>
+      <div class="ben-card" data-r data-r="2">
+        <h3>Support that codes</h3>
+        <p>The engineer who answers your ticket is the engineer who wrote the code. No tier-one, no escalation queues, no scripts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Steps ============ -->
+<section id="steps">
+  <div class="wrap">
+    <div class="sec-head left">
+      <h2 data-r data-r="1">Three steps, <em>under five minutes.</em></h2>
+      <p data-r data-r="2">No accounts, no driver hunt. Flash, boot, and you're working in a session that's reproducible across every machine you own.</p>
+    </div>
+    <div class="steps-wrap">
+      <div class="step" data-r>
+        <span class="n">1</span>
+        <div>
+          <h3>Download</h3>
+          <p>Pull the image from a public mirror. Verify the SHA-256 against the checksum we publish with every release.</p>
+          <span class="cmd">$ curl -LO aarambh.os/3.0.iso</span>
+        </div>
+      </div>
+      <div class="step" data-r data-r="1">
+        <span class="n">2</span>
+        <div>
+          <h3>Flash &amp; boot</h3>
+          <p>Write to a USB 3 stick with dd, balena, or gnome-disk. Boot from it. The installer runs in under ninety seconds.</p>
+          <span class="cmd">$ dd if=aarambh.iso of=/dev/sdX bs=8M</span>
+        </div>
+      </div>
+      <div class="step" data-r data-r="2">
+        <span class="n">3</span>
+        <div>
+          <h3>Sign in &amp; go</h3>
+          <p>Bring your own identity — SSO, hardware token, or local. Updates stage in the background; you keep working.</p>
+          <span class="cmd">$ aarambh-update --apply</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Showcase ============ -->
+<section id="showcase">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 data-r data-r="1">One console, <em>three views.</em></h2>
+      </div>
+      <p data-r data-r="2">Switch between an inbox of fleet events, a rollout board, and a benchmarks report — without leaving the page.</p>
+    </div>
+    <div class="show-grid">
+      <ul class="show-tabs" data-r>
+        <li><button class="active" data-tab="inbox"><span class="ico"><svg viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span><span class="text"><span class="ttl">Inbox</span><span class="desc">Fleet events, newest first.</span></span></button></li>
+        <li><button data-tab="board"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></span><span class="text"><span class="ttl">Rollout board</span><span class="desc">Where every image is right now.</span></span></button></li>
+        <li><button data-tab="report"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 16l4-4 4 2 5-6"/></svg></span><span class="text"><span class="ttl">Benchmarks</span><span class="desc">Boot time and idle memory, since 3.0.</span></span></button></li>
+      </ul>
+      <div class="show-panel console" data-r>
+        <div class="con-bar"><div class="con-title"><span class="mk"><svg viewBox="0 0 24 24"><path d="M6 16 L12 6 L18 16"/></svg></span>Fleet console <small>2,481 machines</small></div><div class="con-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search events, images, rings</div></div>
+        <div class="show-body">
+          <div class="pane pane-inbox active" data-pane="inbox"><div class="inb-tabs"><span class="on">All</span><span>Unread 2</span><span>Mentions 1</span></div><ul class="inb"><li class="unread"><span class="u"></span><span class="av">MC</span><span class="t">Retail POS — Pune pulled update 3.0.2</span><span class="tag">Update</span><span class="w">2m</span></li><li class="unread"><span class="u"></span><span class="av">DO</span><span class="t">Kiosk lab: 12 machines rebooted into the new image</span><span class="tag">Reboot</span><span class="w">14m</span></li><li class=""><span class="u"></span><span class="av">SM</span><span class="t">Disk encryption enabled on Field laptops — Chennai</span><span class="tag">Security</span><span class="w">1h</span></li><li class=""><span class="u"></span><span class="av">JW</span><span class="t">Weekly fleet health report is ready for sign-off</span><span class="tag">Report</span><span class="w">3h</span></li><li class=""><span class="u"></span><span class="av">PN</span><span class="t">Pilot ring passed its 24 hour soak test</span><span class="tag">Rollout</span><span class="w">5h</span></li><li class=""><span class="u"></span><span class="av">LF</span><span class="t">Vikram shared the rollout plan with you</span><span class="tag">Shared</span><span class="w">1d</span></li></ul></div>
+          <div class="pane pane-board" data-pane="board"><div class="kb"><div class="col"><div class="col-h"><span>Downloaded</span><b>2</b></div><div class="trk"><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="card"><p>Retail POS — Pune</p><div class="ft"><span>14 devices</span><span class="av">MC</span></div></div><div class="card"><p>Kiosk lab</p><div class="ft"><span>12 devices</span><span class="av">DO</span></div></div></div><div class="col"><div class="col-h"><span>Staged</span><b>3</b></div><div class="trk"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></div><div class="card"><p>Field laptops — Chennai</p><div class="ft"><span>38 devices</span><span class="av">SM</span></div></div><div class="card"><p>HQ desktops</p><div class="ft"><span>120 devices</span><span class="av">JW</span></div></div><div class="card"><p>Retail POS — Delhi</p><div class="ft"><span>22 devices</span><span class="av">PN</span></div></div></div><div class="col"><div class="col-h"><span>Canary</span><b>1</b></div><div class="trk"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i></div><div class="card"><p>Pilot ring</p><div class="ft"><span>42 devices</span><span class="av">LF</span></div></div></div><div class="col"><div class="col-h"><span>Live</span><b>2</b></div><div class="trk"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="card"><p>Finance terminals</p><div class="ft"><span>64 devices</span><span class="av">MC</span></div></div><div class="card"><p>Dev workstations</p><div class="ft"><span>85 devices</span><span class="av">DO</span></div></div></div></div></div>
+          <div class="pane pane-report" data-pane="report"><div class="bms"><div class="bm"><div class="bm-hd"><span>Boot time</span><span class="bm-d">−35%</span></div>
+<div class="bm-v">6.4<small>s</small></div><p class="bm-s">Median, down from 9.8 s at release</p>
+<div class="bm-plot"><div class="y"><i style="top:0%">10 s</i><i style="top:50%">8 s</i><i style="top:100%">6 s</i></div><svg viewBox="0 0 300 120" role="img" aria-label="Boot time over seven weeks"><line x1="0" x2="300" y1="0" y2="0" stroke="#DADADF"/><line x1="0" x2="300" y1="60" y2="60" stroke="#DADADF"/><line x1="0" x2="300" y1="120" y2="120" stroke="#DADADF"/><path d="M0,6.0 L50,27.0 L100,45.0 L150,69.0 L200,87.0 L250,99.0 L300,108.0 L300,120 L0,120 Z" fill="#0A64F0" fill-opacity=".08"/><path d="M0,6.0 L50,27.0 L100,45.0 L150,69.0 L200,87.0 L250,99.0 L300,108.0" fill="none" stroke="#0A64F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="300" cy="108.0" r="4.5" fill="#fff" stroke="#0A64F0" stroke-width="2.5"/></svg></div>
+<div class="bm-x"><span>Wk 1</span><span>Wk 3</span><span>Wk 5</span><span>Wk 7</span></div></div><div class="bm"><div class="bm-hd"><span>Idle memory</span><span class="bm-d">−23%</span></div>
+<div class="bm-v">240<small> MB</small></div><p class="bm-s">Median, down from 310 MB at release</p>
+<div class="bm-plot"><div class="y"><i style="top:0%">320</i><i style="top:50%">280</i><i style="top:100%">240</i></div><svg viewBox="0 0 300 120" role="img" aria-label="Idle memory over seven weeks"><line x1="0" x2="300" y1="0" y2="0" stroke="#DADADF"/><line x1="0" x2="300" y1="60" y2="60" stroke="#DADADF"/><line x1="0" x2="300" y1="120" y2="120" stroke="#DADADF"/><path d="M0,15.0 L50,33.0 L100,54.0 L150,75.0 L200,93.0 L250,108.0 L300,120.0 L300,120 L0,120 Z" fill="#1D1D1F" fill-opacity=".08"/><path d="M0,15.0 L50,33.0 L100,54.0 L150,75.0 L200,93.0 L250,108.0 L300,120.0" fill="none" stroke="#1D1D1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="300" cy="120.0" r="4.5" fill="#fff" stroke="#1D1D1F" stroke-width="2.5"/></svg></div>
+<div class="bm-x"><span>Wk 1</span><span>Wk 3</span><span>Wk 5</span><span>Wk 7</span></div></div></div><p class="bm-note">Median across 2,481 machines, weekly since the 3.0 release.</p></div>
+        </div>
+        <div class="con-foot"><i></i>Live, synced 4 min ago<span>Aarambh OS 3.0</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Desktop ============ -->
+<section id="desktop">
+  <div class="wrap">
+    <div class="desk-grid">
+      <div class="desk-text">
+        <h2 data-r data-r="1">A session that <em>looks like a tool,</em> not a toy.</h2>
+        <p data-r data-r="2">Plasma 6.2 on Wayland, retuned by the Gentix design team. Quiet by default, themeable in seconds, and fast enough to forget it's there.</p>
+        <div class="desk-highlights" data-r data-r="3">
+          <div class="row"><span class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Color-managed outputs.</b> Display-cal profiles are honored per-display, with optional HDR passthrough on capable panels.</div></div>
+          <div class="row"><span class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Session restore.</b> Reopen the same windows, workspaces, and tab state after every reboot — opt-in per session.</div></div>
+          <div class="row"><span class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Keyboard-first.</b> A documented set of eighty-eight shortcuts, with a cheat-sheet overlay on Super+?</div></div>
+          <div class="row"><span class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Accessibility built in.</b> Screen reader, magnifier, and high-contrast themes ship enabled — no extra install.</div></div>
+        </div>
+      </div>
+      <div class="os-window" data-r data-r="1">
+        <div class="os-w-bar">
+          <span class="d"></span><span class="d"></span><span class="d"></span>
+          <span class="ttl">aarambh — desktop session</span>
+        </div>
+        <div class="os-w-body">
+          <div class="menubar">
+            <span class="logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16 L12 6 L18 16"/><circle cx="12" cy="18.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+              Aarambh
+            </span>
+            <span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Tools</span><span>Help</span>
+            <span class="sp"></span>
+            <span class="ind"><i></i>Updates ready</span>
+            <span class="ind">11:42 IST</span>
+            <span class="ind">100%</span>
+          </div>
+          <div class="os-grid-w">
+            <div class="os-tile-w dark"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM14 14h6v6h-6zM4 14h6v6H4z"/></svg></div>
+            <div class="os-tile-w"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M2 12h20"/></svg></div>
+            <div class="os-tile-w"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></div>
+            <div class="os-tile-w"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+            <div class="os-tile-w"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></div>
+            <div class="os-tile-w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+            <div class="os-tile-w"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v10l9 5 9-5V7z"/></svg></div>
+            <div class="os-tile-w"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16"/></svg></div>
+          </div>
+          <div class="os-dock-w">
+            <div class="ic active"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></div>
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16"/></svg></div>
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+            <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></div>
+            <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v10l9 5 9-5V7z"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Metrics ============ -->
+<section id="metrics">
+  <div class="wrap">
+    <div class="metrics-grid">
+      <div class="metric" data-r>
+        <span class="num" data-count="11" data-suffix="s">0s</span>
+        <span class="lbl">Cold boot to desktop, median across 40 reference devices</span>
+      </div>
+      <div class="metric" data-r data-r="1">
+        <span class="num" data-count="240" data-suffix=" MB">0 MB</span>
+        <span class="lbl">Idle memory after first boot, default session</span>
+      </div>
+      <div class="metric" data-r data-r="2">
+        <span class="num" data-count="99" data-decimals="2" data-suffix="%">0%</span>
+        <span class="lbl">Update success rate across the last twelve months</span>
+      </div>
+      <div class="metric" data-r data-r="3">
+        <span class="num" data-count="2481">0</span>
+        <span class="lbl">Machines under management, fleet reference deployment</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Testimonials ============ -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 data-r data-r="1">What teams say <em>after the first month.</em></h2>
+      </div>
+      <p data-r data-r="2">Pulled from onboarding calls — every quote approved for publication, every name real.</p>
+    </div>
+    <div class="tst-grid">
+      <figure class="tst" data-r>
+        <blockquote>"We replaced a patched Ubuntu image across 1,400 kiosks. Boot time halved. The rollback saved us twice during a bad driver push."</blockquote>
+        <figcaption>
+          <span class="av" style="background:linear-gradient(135deg,hsl(214 70% 62%),hsl(254 70% 48%))">MC</span>
+          <div class="info"><p>Meera Chokshi</p><p>Head of Platform, Vayuvega</p></div>
+        </figcaption>
+      </figure>
+      <figure class="tst" data-r data-r="1">
+        <blockquote>"The signed-image pipeline is the cleanest I've seen in the Linux world. Our auditors stopped asking questions after we sent them the SBOM."</blockquote>
+        <figcaption>
+          <span class="av" style="background:linear-gradient(135deg,hsl(176 70% 62%),hsl(216 70% 48%))">RI</span>
+          <div class="info"><p>Rohit Iyer</p><p>SRE Lead, IndusGrid</p></div>
+        </figcaption>
+      </figure>
+      <figure class="tst" data-r data-r="2">
+        <blockquote>"Aarambh feels like the missing console layer for rpm-ostree. We stopped building internal tooling the week we adopted it."</blockquote>
+        <figcaption>
+          <span class="av" style="background:linear-gradient(135deg,hsl(268 70% 62%),hsl(308 70% 48%))">SM</span>
+          <div class="info"><p>Sara Mathew</p><p>Director of Eng, Anvay Health</p></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Pricing ============ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 data-r data-r="1">Three editions, <em>one image.</em></h2>
+      </div>
+      <p data-r data-r="2">Every edition boots from the same signed image. The difference is the support, the policy, and where the updates come from.</p>
+    </div>
+    <div class="price-toggle" data-r>
+      <div class="pill" id="billing-pill">
+        <div class="slider" id="billing-slider"></div>
+        <button class="active" data-billing="yearly">Yearly<span class="save">Save 20%</span></button>
+        <button data-billing="monthly">Monthly</button>
+      </div>
+    </div>
+    <div class="price-grid">
+      <article class="tier" data-r>
+        <span class="badge">Free forever</span>
+        <div class="name">Personal</div>
+        <div class="price">₹0<span class="per">forever</span></div>
+        <p class="desc">For individuals, hobbyists, and tinkerers. The full desktop, public updates, community support.</p>
+        <a href="#cta" class="btn ghost">Download</a>
+        <ul class="in">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Full desktop session</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Public update channel</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Community forum support</li>
+          <li class="muted"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>MDM &amp; fleet enrollment</li>
+          <li class="muted"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>SLA &amp; private channel</li>
+        </ul>
+      </article>
+      <article class="tier feat" data-r data-r="1">
+        <span class="badge">Most picked</span>
+        <div class="name">Enterprise</div>
+        <div class="price">₹<span data-price-yearly="899" data-price-monthly="1125">899</span><span class="per">per device / mo</span></div>
+        <p class="desc">For teams shipping product on Aarambh. MDM, policy, and a private update mirror.</p>
+        <a href="#cta" class="btn">Start trial</a>
+        <ul class="in">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in Personal</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>MDM &amp; fleet enrollment</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Private update mirror</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>SBOM &amp; provenance API</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Next-business-day support</li>
+        </ul>
+      </article>
+      <article class="tier" data-r data-r="2">
+        <span class="badge">Custom</span>
+        <div class="name">Sovereign</div>
+        <div class="price">Talk to us</div>
+        <p class="desc">For regulated industries, governments, and air-gapped deployments. You hold the signing key.</p>
+        <a href="#contact" class="btn ghost">Contact sales</a>
+        <ul class="in">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in Enterprise</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Air-gapped install &amp; updates</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Customer-held signing key</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>FIPS 140-3 hardened build</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Dedicated solutions engineer</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head left">
+      <h2 data-r data-r="1">Things people <em>actually ask.</em></h2>
+    </div>
+    <div class="faq-list" data-r data-r="1">
+      <div class="faq-item open">
+        <button class="q"><span>Is Aarambh OS really free?</span><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="a"><p>Yes. The Personal edition is free forever — full desktop, public updates, no telemetry, no account. We charge for teams (MDM, private mirror, SLA) and for sovereign deployments (air-gap, custom signing key).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="q"><span>Can I install it on my existing laptop?</span><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="a"><p>If it's a 64-bit x86 or ARM machine from 2018 or later, almost certainly yes. We test against a reference set of forty devices and publish the full compatibility list with every release.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="q"><span>How are updates signed?</span><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="a"><p>Every image is signed by the Gentix Science build key. The UKI verifies the signature at boot, and a failed signature rolls the system back to the last known good state automatically. The signing key fingerprint is published on the website and rotated on a documented schedule.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="q"><span>Does it work offline?</span><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="a"><p>Yes — the entire install can run air-gapped, and the Sovereign edition ships a private update mirror that lives on your network. Telemetry is opt-in even on the free edition; there is no off-switch because there is no on-switch.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="q"><span>What about my existing apps?</span><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="a"><p>Flatpak and DPKG5 are both supported out of the box. Most modern Linux desktop apps install without modification. For anything that needs a specific runtime, the console can ship a per-app container image to the fleet.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="q"><span>How long does a rollout take?</span><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="a"><p>A 1,000-machine fleet moves from staged to live in under ninety minutes, on a 100 Mbps mirror. Most of that time is the machines rebooting — Aarambh never blocks the user; updates apply on the next natural restart.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-box" data-r>
+      <h2>Ship from <em>anywhere.</em></h2>
+      <p>Drop your email and we'll send the checksum, the signing key fingerprint, and a download link from the public mirror. No account, no marketing.</p>
+      <form class="cta-form" id="cta-form" novalidate>
+        <input type="email" id="cta-email" placeholder="you@company.com" autocomplete="email" aria-label="Email">
+        <button type="submit" class="btn">Get the image
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p class="err">Please enter a valid email address.</p>
+      </form>
+      <div class="cta-ok" id="cta-ok">
+        <span class="chip">
+          <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Checksum &amp; signing key sent. Check your inbox.
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="#" class="brand">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16 L12 6 L18 16"/><circle cx="12" cy="18.5" r="1.2" fill="#0A0A0A" stroke="none"/></svg>
+          </span>
+          Aarambh OS
+        </a>
+        <p>A Linux-based operating system engineered for performance, sovereignty, and craft. Built and signed in India.</p>
+        <div class="f-socials">
+          <a href="#" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.8 13.8 0 0 0-.64 1.28 18.3 18.3 0 0 0-5.5 0 13.8 13.8 0 0 0-.64-1.28c-1.71.29-3.37.8-4.93 1.51A20.3 20.3 0 0 0 .1 18.06a19.9 19.9 0 0 0 6.07 3.08c.49-.67.92-1.38 1.29-2.13a12.9 12.9 0 0 1-2.03-.98c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.14 0l.5.38c-.65.39-1.33.72-2.03.98.37.75.8 1.46 1.29 2.13a19.9 19.9 0 0 0 6.07-3.08 20.3 20.3 0 0 0-2.68-13.69ZM8.36 15.33c-1.18 0-2.15-1.08-2.15-2.41 0-1.33.95-2.41 2.15-2.41s2.17 1.09 2.15 2.41c0 1.33-.95 2.41-2.15 2.41Zm7.28 0c-1.18 0-2.15-1.08-2.15-2.41 0-1.33.95-2.41 2.15-2.41s2.17 1.09 2.15 2.41c0 1.33-.94 2.41-2.15 2.41Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.98c-3.14 0-3.5.01-4.73.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.23-.07 1.59-.07 4.73s.01 3.5.07 4.73c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.23.06 1.59.07 4.73.07s3.5-.01 4.73-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.23.07-1.59.07-4.73s-.01-3.5-.07-4.73c-.04-.9-.19-1.39-.32-1.71a2.9 2.9 0 0 0-.69-1.06 2.9 2.9 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32-1.23-.06-1.59-.07-4.73-.07Zm0 3.37a5.49 5.49 0 1 1 0 10.98 5.49 5.49 0 0 1 0-10.98Zm0 1.98a3.51 3.51 0 1 0 0 7.02 3.51 3.51 0 0 0 0-7.02Zm5.7-2.2a1.28 1.28 0 1 1 0 2.57 1.28 1.28 0 0 1 0-2.57Z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07a8.1 8.1 0 0 1-2.39-1.47 9 9 0 0 1-1.65-2.06c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.62-.93-2.22-.24-.58-.5-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.45s1.06 2.84 1.2 3.04c.15.2 2.07 3.16 5.01 4.43.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.11.56-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35ZM12.04 21.8h-.01a9.8 9.8 0 0 1-4.98-1.36l-.36-.21-3.7.97.99-3.61-.23-.37a9.77 9.77 0 0 1-1.5-5.22c0-5.4 4.4-9.79 9.8-9.79a9.74 9.74 0 0 1 6.92 2.87 9.72 9.72 0 0 1 2.87 6.93c0 5.4-4.4 9.79-9.8 9.79Zm8.34-18.13A11.7 11.7 0 0 0 12.04.3C5.58.3.32 5.55.32 12a11.66 11.66 0 0 0 1.56 5.86L.25 23.7l5.97-1.57a11.72 11.72 0 0 0 5.81 1.54h.01c6.46 0 11.72-5.25 11.72-11.7 0-3.13-1.22-6.07-3.43-8.28Z"/></svg></a>
+        </div>
+      </div>
+      <nav class="f-col" aria-label="Product">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#desktop">Desktop</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#cta">Download</a></li>
+        </ul>
+      </nav>
+      <nav class="f-col" aria-label="Resources">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">Install guide</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Security disclosures</a></li>
+          <li><a href="#">SBOM &amp; provenance</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </nav>
+      <nav class="f-col" aria-label="Community">
+        <h5>Community</h5>
+        <ul>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">WhatsApp channel</a></li>
+          <li><a href="#">GitHub mirror</a></li>
+          <li><a href="#">Forum</a></li>
+        </ul>
+      </nav>
+      <nav class="f-col" aria-label="Company">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">Gentix Science</a></li>
+          <li><a href="#">Bengaluru, IN</a></li>
+          <li><a href="mailto:hello@gentix.science">hello@gentix.science</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press kit</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Gentix Science. All rights reserved.</span>
+      <div class="right">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+      </div>
+      <span>Images built and signed in India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   Aarambh OS — single-file JS (v4)
+   - Header scrolled state + mobile menu
+   - Smooth anchor scroll
+   - Reveal on scroll
+   - Counter animation
+   - Hero dashboard chart (animated path draw)
+   - Showcase tabs
+   - Pricing billing toggle + slider
+   - FAQ accordion
+   - CTA email form
+   - Ticker scroll-direction speed
+   ============================================================ */
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var header = document.getElementById('header');
+  var lastY = 0;
+  function onScroll(){
+    var sy = window.scrollY || window.pageYOffset;
+    if (header) {
+      header.classList.toggle('scrolled', sy > 12);
+    }
+    document.body.classList.toggle('scroll-down', sy > lastY && sy > 100);
+    lastY = sy;
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var mt = document.querySelector('.menu-toggle');
+  if (mt){
+    mt.addEventListener('click', function(){ document.body.classList.toggle('menu-open'); });
+    document.querySelectorAll('nav.main a').forEach(function(a){
+      a.addEventListener('click', function(){ document.body.classList.remove('menu-open'); });
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if (id && id.length > 1){
+        var el = document.querySelector(id);
+        if (el){
+          e.preventDefault();
+          var top = el.getBoundingClientRect().top + window.scrollY - (el.id === 'hero' ? 0 : 80);
+          window.scrollTo({top:top, behavior: reduce ? 'auto' : 'smooth'});
+        }
+      }
+    });
+  });
+
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        en.target.classList.add('in-view');
+        revealObs.unobserve(en.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('[data-r]').forEach(function(el){ revealObs.observe(el); });
+
+  var countObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        var el = en.target;
+        var target = parseFloat(el.getAttribute('data-count'));
+        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var t0 = performance.now();
+        var dur = 1600;
+        function step(now){
+          var t = Math.min(1, (now - t0)/dur);
+          var e = 1 - Math.pow(1 - t, 3);
+          var v = (e * target).toFixed(decimals);
+          var display = v;
+          if (decimals === 0 && target >= 1000){
+            display = parseInt(v, 10).toLocaleString('en-IN');
+          }
+          el.textContent = display + suffix;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        countObs.unobserve(el);
+      }
+    });
+  }, {threshold:0.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){ countObs.observe(el); });
+
+
+  /* Live clocks (menu bar + desktop frame) */
+  (function(){
+    var c1=document.getElementById('clock'), c2=document.getElementById('clock2');
+    function tick(){
+      var d=new Date();
+      var t=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+      if(c1) c1.textContent=t;
+      if(c2) c2.textContent=d.toLocaleDateString([], {weekday:'short'})+' '+t;
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+
+  /* Hero dashboard chart — animated path draw */
+  (function(){
+    var points = [12, 18, 15, 22, 26, 24, 30, 28, 34, 38, 36, 44, 42, 50];
+    var w = 400, h = 120;
+    var max = Math.max.apply(null, points) * 1.15;
+    var step = w / (points.length - 1);
+    var coords = points.map(function(p, i){ return [i * step, h - (p / max) * h]; });
+    var line = coords.map(function(c, i){ return (i === 0 ? 'M' : 'L') + c[0].toFixed(1) + ',' + c[1].toFixed(1); }).join(' ');
+    var area = line + ' L' + w + ',' + h + ' L0,' + h + ' Z';
+    var lineEl = document.getElementById('chart-line');
+    var areaEl = document.getElementById('chart-area');
+    var dotEl = document.getElementById('chart-dot');
+    if (!lineEl) return;
+    lineEl.setAttribute('d', line);
+    areaEl.setAttribute('d', area);
+    var last = coords[coords.length - 1];
+    dotEl.setAttribute('cx', last[0]);
+    dotEl.setAttribute('cy', last[1]);
+
+    var chartObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          var len = lineEl.getTotalLength();
+          lineEl.style.strokeDasharray = len;
+          lineEl.style.strokeDashoffset = len;
+          lineEl.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.22,1,.36,1)';
+          void lineEl.getBoundingClientRect();
+          lineEl.style.strokeDashoffset = '0';
+          areaEl.style.transition = 'opacity .8s ease .4s';
+          areaEl.style.opacity = '1';
+          setTimeout(function(){
+            dotEl.style.transition = 'opacity .3s ease';
+            dotEl.style.opacity = '1';
+          }, 1600);
+          chartObs.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.4});
+    chartObs.observe(lineEl);
+  })();
+
+  /* Showcase tabs */
+  var tabs = document.querySelectorAll('.show-tabs button');
+  var panes = document.querySelectorAll('.show-panel .pane');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.getAttribute('data-tab');
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      btn.classList.add('active');
+      panes.forEach(function(p){
+        p.classList.toggle('active', p.getAttribute('data-pane') === key);
+      });
+    });
+  });
+
+  /* Pricing billing toggle */
+  var pill = document.getElementById('billing-pill');
+  var slider = document.getElementById('billing-slider');
+  var billingBtns = pill ? pill.querySelectorAll('button') : [];
+  var priceEl = document.querySelector('.tier.feat .price [data-price-yearly]');
+  function positionSlider(){
+    if (!pill || !slider) return;
+    var active = pill.querySelector('button.active');
+    if (!active) return;
+    slider.style.width = active.offsetWidth + 'px';
+    slider.style.transform = 'translateX(' + (active.offsetLeft - 4) + 'px)';
+  }
+  function setBilling(key){
+    if (!billingBtns.length) return;
+    billingBtns.forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-billing') === key);
+    });
+    positionSlider();
+    if (priceEl){
+      var val = key === 'yearly' ? priceEl.getAttribute('data-price-yearly') : priceEl.getAttribute('data-price-monthly');
+      if (val) {
+        priceEl.textContent = val;
+      }
+    }
+  }
+  billingBtns.forEach(function(b){
+    b.addEventListener('click', function(){ setBilling(b.getAttribute('data-billing')); });
+  });
+  if (billingBtns.length){
+    setTimeout(positionSlider, 50);
+    window.addEventListener('resize', positionSlider);
+  }
+
+  /* FAQ accordion */
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function(item){
+    var btn = item.querySelector('.q');
+    var ans = item.querySelector('.a');
+    if (!btn || !ans) return;
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      faqItems.forEach(function(other){
+        var otherAns = other.querySelector('.a');
+        other.classList.remove('open');
+        if (otherAns) otherAns.style.maxHeight = null;
+      });
+      if (!isOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+  if (faqItems.length > 0){
+    var first = faqItems[0].querySelector('.a');
+    if (first) {
+      first.style.maxHeight = first.scrollHeight + 'px';
+    }
+  }
+
+  /* CTA email form */
+  var form = document.getElementById('cta-form');
+  var input = document.getElementById('cta-email');
+  var ok = document.getElementById('cta-ok');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (form && input){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var v = input.value.trim();
+      if (!emailRe.test(v)){
+        form.classList.add('has-err');
+        input.focus();
+        return;
+      }
+      form.classList.remove('has-err');
+      form.style.display = 'none';
+      if (ok) {
+        ok.classList.add('show');
+      }
+    });
+    input.addEventListener('input', function(){
+      if (form.classList.contains('has-err')){
+        form.classList.remove('has-err');
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
